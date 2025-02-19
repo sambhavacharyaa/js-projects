@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pallindrome</h1>
+    <input type="text" class="input" placeholder="Add here">
+    <button onclick ='check()'>Check</button>
+    <p></p>
+    <script>
+        let input = document.querySelector(".input")
+        function reverseString(){
+            let value = input.value
+            
+            return value.split("").reverse().join('')
+            
+        }
+        function check(){
+            let value = input.value
+            if (value == reverseString()){
+                document.querySelector('p').innerHTML = "It is a pallindrome"
+            }
+            else{
+            document.querySelector('p').innerHTML = "It is not a pallindrome"
+            }
+            input.value = ''
+        }
+        
+        
+    </script>
+</body>
+</html>

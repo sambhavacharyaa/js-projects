@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Random Quote Generator</h1>
+    <p id="quote"></p>
+    <button onclick="generateQuote()">Generate</button>
+    <script>
+        const quotes = [
+            "The only way to do great work is to love what you do. – Steve Jobs",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts. – Winston Churchill",
+            "Do what you can, with what you have, where you are. – Theodore Roosevelt",
+            "Believe you can and you're halfway there. – Theodore Roosevelt",
+            "It always seems impossible until it's done. – Nelson Mandela",
+            "You miss 100% of the shots you don’t take. – Wayne Gretzky",
+            "Don’t watch the clock; do what it does. Keep going. – Sam Levenson",
+            "Act as if what you do makes a difference. It does. – William James",
+            "Everything you can imagine is real. – Pablo Picasso",
+            "The best time to plant a tree was 20 years ago. The second best time is now. – Chinese Proverb"
+        ];
+
+        let usedIndexes = new Set()
+        const quoteElement = document.querySelector("#quote")
+        function generateQuote() {
+            if (usedIndexes.size >= quotes.length){
+                usedIndexes.clear()
+            }
+            while (true){
+                
+                
+                
+                let random_idx = Math.floor(Math.random() * quotes.length)
+                if (usedIndexes.has(random_idx)) continue
+                let random_quote = quotes[random_idx]
+                quoteElement.innerHTML = random_quote;
+                usedIndexes.add(random_idx)
+                break
+            }
+        }
+    </script>
+</body>
+
+</html>

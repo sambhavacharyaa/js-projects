@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    .box{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: beige;
+    }
+    button{
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+
+    }
+    h1{
+        font-size: 100px;
+    }
+    h3{
+        font-size: 30px;
+    }
+    .buttons{
+        padding: 10px;
+    }
+   body{
+    background-color: bisque;
+    font-family: "Poppins", serif;
+
+   }
+</style>
+
+<body>
+    <div class="main">
+
+        <div class="box">
+            
+            <h3>Stop Watch</h3>
+            <h1 class="time">00:00</h3>
+                <div class="buttons">
+                    
+                    <button onclick="start()">Start</button>
+                    <button onclick="stop()">Stop</button>
+                    <button onclick="reset()">Reset</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            let secondsElapsed = 0;
+            let interval = null;
+            const time = document.querySelector(".time")
+            function pad(value){
+                return String(value).padStart(2, "0")
+            }
+            function timer(){
+                secondsElapsed++;
+                setTime()
+            }
+            function setTime(){
+                const minutes = Math.floor(secondsElapsed / 60)
+                const seconds = secondsElapsed % 60
+                time.innerHTML = `${pad(minutes)}:${pad(seconds)}`;
+                
+            }
+            function start(){
+                if (interval) stop()
+                interval = setInterval(timer, 1000)
+
+            }
+            function stop(){
+                clearInterval(interval)
+            }
+            function reset(){
+                stop()
+                secondsElapsed = 0;
+                setTime()
+            }
+        </script>
+</body>
+
+</html>
