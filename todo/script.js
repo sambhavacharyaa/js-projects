@@ -27,12 +27,12 @@ function removeTask(event){
 }
 function complete(event){
     const task = event.target.parentElement;
-    if (!task.querySelector('completed')){
-        
+    if (!task_parent.querySelector('completed')){
         
         const completed = document.createElement('span')
+        completed.innerHTML = ''
         completed.innerHTML = '[COMPLETED]'
-        task.classList.add('completed')
+        completed.classList.add('completed')
         task.append(completed)
         
     }

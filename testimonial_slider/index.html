@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+        body{
+            background-color: beige;
+            font-family: "Poppins", serif;
+        }
+        .box {
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 500px;
+            height: 300px;
+            padding: 30px;
+            align-self: center;
+            text-align: center;
+        }
+
+        .main {
+            height: 100vh;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img {
+            width: 100px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="box">
+            <img src="https://images.freeimages.com/images/large-previews/cb2/professional-businessman-phone-call-0410-5697238.jpg?fmt=webp&w=500"
+                alt="" class="img">
+            <h3 class="title">John Doe</h3>
+            <p class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero quae nisi iure, architecto
+                rerum voluptates dolorem commodi optio maiores nostrum.</p>
+        </div>
+    </div>
+
+    <script>
+        const img = document.querySelector('.img');
+        const title = document.querySelector('.title');
+        const about = document.querySelector('.about');
+        const images = [
+            'https://picsum.photos/200/300', // Random 200x300 image from Lorem Picsum
+            'https://picsum.photos/300/200', // Random 300x200 image from Lorem Picsum
+            'https://picsum.photos/250/250', // Random 250x250 image from Lorem Picsum
+            'https://picsum.photos/400/300', // Random 400x300 image from Lorem Picsum
+            'https://picsum.photos/300/400', // Random 300x400 image from Lorem Picsum
+            'https://picsum.photos/350/350', // Random 350x350 image from Lorem Picsum
+            'https://picsum.photos/450/300', // Random 450x300 image from Lorem Picsum
+            'https://picsum.photos/300/450', // Random 300x450 image from Lorem Picsum
+            'https://picsum.photos/500/300', // Random 500x300 image from Lorem Picsum
+            'https://picsum.photos/300/500'
+        ]
+        const names = [
+            "Alex Carter",
+            "Mia Reynolds",
+            "Jake Thompson",
+            "Sophia Bennett",
+            "Liam Anderson",
+            "Olivia Parker",
+            "Ethan Collins",
+            "Ava Mitchell",
+            "Noah Sullivan",
+            "Emma Hayes"
+        ];
+
+        function change() {
+            setInterval(() => {
+                let rand_num = Math.floor(images.length * Math.random())
+                img.src = images[rand_num]
+                title.innerHTML = names[rand_num]
+            }, 3000);
+
+        }
+        change()
+        
+
+    </script>
+</body>
+
+</html>
